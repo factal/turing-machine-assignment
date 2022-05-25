@@ -1,0 +1,29 @@
+name: problem-3
+source code: |
+input: '11111 111'
+blank: ' '
+start state: q1
+table:
+  # scan to the rightmost digit
+  q1:
+    1: R
+    ' ': {R: q2}
+  q2:
+    1: R
+    ' ': {L: q3}
+  q3:
+    1: {write: ' ', L: q4}
+    ' ': {L: qend}
+  q4:
+    1: L
+    ' ': {L: q5}
+  q5:
+    1: L
+    ' ': {R: q6}
+  q6:
+    1: {write: ' ', R: q1}
+    ' ': {R: q7}
+  q7:
+    1: {write: ' ', R}
+    ' ': {R: qend}
+  qend:
